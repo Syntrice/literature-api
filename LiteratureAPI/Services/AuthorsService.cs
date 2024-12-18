@@ -1,5 +1,4 @@
 ﻿using LiteratureAPI.Models;
-using System.Text.Json;
 
 namespace LiteratureAPI.Services
 {
@@ -14,12 +13,17 @@ namespace LiteratureAPI.Services
 
         public List<Author> GetAuthors()
         {
-            return _model.GetAuthors();
+            return _model.Authors;
         }
 
         public void AddAuthor(Author author)
         {
-            _model.AddAuthor(author);
+            _model.Append(author);
+        }
+
+        public void RemoveAuthorById(int id)
+        {
+            _model.Remove(id);
         }
     }
 }

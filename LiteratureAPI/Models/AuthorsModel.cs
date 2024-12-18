@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Collections.Generic;
+using System.Text.Json;
 
 namespace LiteratureAPI.Models
 {
@@ -8,28 +9,43 @@ namespace LiteratureAPI.Models
         private static string DbPath = "Resources/Authors.json";
         private int _nextId;
 
+        public List<Author> Authors
+        {
+            get
+            {
+                return Deserialize(DbPath);
+            }
+        }
+
         public AuthorsModel()
         {
-            List<Author> authorList = Deserialize(DbPath);
-            _nextId = authorList.Select(x => x.Id).Max() + 1;
+            List<Author> authors = Deserialize(DbPath);
+            _nextId = authors.Select(x => x.Id).Max() + 1;
         }
 
-        public List<Author> GetAuthors()
+        public void Append(Author author)
         {
-            return Deserialize(DbPath);
-        }
+            List<Author> authors = Deserialize(DbPath);
+            authors.Add(author);
+            Serialize(DbPath, authors);
 
-        public void AddAuthor(Author author)
-        {
             author.Id = _nextId++;
-            Append(DbPath, author);
         }
 
-        private void Append(string path, Author author)
+        public void Remove(int id)
         {
-            List<Author> list = Deserialize(path);
-            list.Add(author);
-            File.WriteAllText(path, JsonSerializer.Serialize(list, new JsonSerializerOptions { WriteIndented = true }));
+            List<Author> authors = Deserialize(DbPath);
+            Author? authorToRemove = authors.FirstOrDefault(obj => obj.Id == id);
+            if (authorToRemove != null)
+            {
+                authors.Remove(authorToRemove);
+                Serialize(DbPath, authors);
+            }
+        }
+
+        private void Serialize(string path, List<Author> authors)
+        {
+            File.WriteAllText(path, JsonSerializer.Serialize(authors, new JsonSerializerOptions { WriteIndented = true }));
         }
 
         private List<Author> Deserialize(string path)

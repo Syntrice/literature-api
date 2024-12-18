@@ -48,25 +48,5 @@
     "Id": 10,
     "Name": "Haruki Murakami",
     "Nationality": "Japanese"
-  },
-  {
-    "Id": 11,
-    "Name": "John Smith",
-    "Nationality": "British"
-  },
-  {
-    "Id": 12,
-    "Name": "John Smith",
-    "Nationality": "British"
-  },
-  {
-    "Id": 13,
-    "Name": "John Smith",
-    "Nationality": "British"
-  },
-  {
-    "Id": 14,
-    "Name": "John Smith",
-    "Nationality": "British"
   }
 ]

@@ -36,5 +36,13 @@ namespace LiteratureAPI.Controllers
             _service.AddAuthor(author);
             return Created($"{Request.Path.Value}/{author.Id}",author);
         }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public IActionResult DeleteAuthor(int id)
+        {
+            _service.RemoveAuthorById(id);
+            return NoContent();
+        }
     }
 }
