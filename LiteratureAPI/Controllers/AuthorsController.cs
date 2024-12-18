@@ -1,5 +1,7 @@
-﻿using LiteratureAPI.Services;
+﻿using LiteratureAPI.Models;
+using LiteratureAPI.Services;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 namespace LiteratureAPI.Controllers
 {
@@ -26,6 +28,13 @@ namespace LiteratureAPI.Controllers
         {
             var author = _service.GetAuthors().FirstOrDefault(x => x.Id == id);
             return Ok(author); // return 200 OK with authors
+        }
+
+        [HttpPost]
+        public IActionResult PostAuthor([FromBody] Author author)
+        {
+            _service.AddAuthor(author);
+            return Created($"{Request.Path.Value}/{author.Id}",author);
         }
     }
 }

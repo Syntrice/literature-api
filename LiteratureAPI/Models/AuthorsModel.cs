@@ -6,12 +6,30 @@ namespace LiteratureAPI.Models
     {
         // TODO: don't hard code this, pass in config...?
         private static string DbPath = "Resources/Authors.json";
-
-        public List<Author> Authors { get; }
+        private int _nextId;
 
         public AuthorsModel()
         {
-            Authors = Deserialize(DbPath);
+            List<Author> authorList = Deserialize(DbPath);
+            _nextId = authorList.Select(x => x.Id).Max() + 1;
+        }
+
+        public List<Author> GetAuthors()
+        {
+            return Deserialize(DbPath);
+        }
+
+        public void AddAuthor(Author author)
+        {
+            author.Id = _nextId++;
+            Append(DbPath, author);
+        }
+
+        private void Append(string path, Author author)
+        {
+            List<Author> list = Deserialize(path);
+            list.Add(author);
+            File.WriteAllText(path, JsonSerializer.Serialize(list, new JsonSerializerOptions { WriteIndented = true }));
         }
 
         private List<Author> Deserialize(string path)
