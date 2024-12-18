@@ -4,11 +4,20 @@ namespace LiteratureAPI.Models
 {
     public class AuthorsModel
     {
-        public List<Author> FetchAuthors()
+        // TODO: don't hard code this, pass in config...?
+        private static string DbPath = "Resources/Authors.json";
+
+        public List<Author> Authors { get; }
+
+        public AuthorsModel()
+        {
+            Authors = Deserialize(DbPath);
+        }
+
+        private List<Author> Deserialize(string path)
         {
             var deserializedData = JsonSerializer.Deserialize<List<Author>>(File.ReadAllText("Resources\\Authors.json"));
-
-            if (deserializedData == null )
+            if (deserializedData == null)
             {
                 return [];
             }

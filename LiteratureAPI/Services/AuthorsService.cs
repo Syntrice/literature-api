@@ -13,7 +13,7 @@ namespace LiteratureAPI.Services
 
         public List<Author> GetAuthors()
         {
-            return _model.FetchAuthors();
+            return _model.Authors;
         }
     }
 }
