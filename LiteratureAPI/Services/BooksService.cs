@@ -1,29 +1,43 @@
 ﻿using LiteratureAPI.Models;
+using System.Threading.Tasks.Dataflow;
 
 namespace LiteratureAPI.Services
 {
     public class BooksService
     {
-        private readonly BooksModel _model;
+        private readonly BooksModel _booksModel;
+        private readonly AuthorsModel _authorsModel;
 
-        public BooksService(BooksModel model)
+        public BooksService(BooksModel booksModel, AuthorsModel authorsModel)
         {
-            _model = model;
+            _booksModel = booksModel;
+            _authorsModel = authorsModel;
         }
 
         public List<Book> GetBooks()
         {
-            return _model.Data;
+            return _booksModel.Data;
+        }
+
+        public List<Book> GetBooksByAuthorId(int id)
+        {
+            var books = from book in _booksModel.Data
+                        join author in _authorsModel.Data
+                        on book.Author equals author.Name
+                        where author.Id == id
+                        select book;
+
+            return books.ToList();
         }
 
         public void AddBook(Book book)
         {
-            _model.Append(book);
+            _booksModel.Append(book);
         }
 
         public void RemoveBookById(int id)
         {
-            _model.Remove(id);
+            _booksModel.Remove(id);
         }
     }
 }

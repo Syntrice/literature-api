@@ -17,16 +17,24 @@ namespace LiteratureAPI.Controllers
         [HttpGet]
         public IActionResult GetBooks()
         {
-            var authors = _service.GetBooks();
-            return Ok(authors); // return 200 OK with authors
+            var books = _service.GetBooks();
+            return Ok(books); // return 200 OK with authors
         }
 
         [HttpGet]
         [Route("{id}")]
         public IActionResult GetBooksById(int id)
         {
-            var author = _service.GetBooks().FirstOrDefault(x => x.Id == id);
-            return Ok(author); // return 200 OK with authors
+            var books = _service.GetBooks().FirstOrDefault(x => x.Id == id);
+            return Ok(books); // return 200 OK with authors
+        }
+
+        [HttpGet]
+        [Route("author/{authorid}")]
+        public IActionResult GetBooksByAuthorId(int authorid)
+        {
+            var books = _service.GetBooksByAuthorId(authorid);
+            return Ok(books); // return 200 OK with authors
         }
 
         [HttpPost]
