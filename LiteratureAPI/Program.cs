@@ -14,6 +14,8 @@ builder.Services.AddControllers();
 // controller should be added automatically (from above...?)
 builder.Services.AddScoped<AuthorsService>();
 builder.Services.AddScoped<AuthorsModel>();
+builder.Services.AddScoped<BooksService>();
+builder.Services.AddScoped<BooksModel>();
 
 var app = builder.Build();
 
