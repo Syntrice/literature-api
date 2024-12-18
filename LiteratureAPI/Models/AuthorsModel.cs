@@ -4,9 +4,18 @@ namespace LiteratureAPI.Models
 {
     public class AuthorsModel
     {
-        public List<Author> GetAuthors()
+        public List<Author> FetchAuthors()
         {
-            return JsonSerializer.Deserialize<List<Author>>(File.ReadAllText("Resources\\Authors.json"));
+            var deserializedData = JsonSerializer.Deserialize<List<Author>>(File.ReadAllText("Resources\\Authors.json"));
+
+            if (deserializedData == null )
+            {
+                return [];
+            }
+            else
+            {
+                return deserializedData;
+            }
         }
     }
 }

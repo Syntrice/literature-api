@@ -4,16 +4,16 @@ namespace LiteratureAPI.Services
 {
     public class AuthorsService
     {
-        private AuthorsModel _model;
+        private readonly AuthorsModel _model;
 
         public AuthorsService(AuthorsModel model)
         {
             _model = model;
         }
 
-        public List<Author> GetAllAuthors()
+        public List<Author> GetAuthors()
         {
-            return _model.GetAuthors();
+            return _model.FetchAuthors();
         }
     }
 }

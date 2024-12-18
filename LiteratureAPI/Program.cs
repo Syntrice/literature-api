@@ -1,3 +1,6 @@
+using LiteratureAPI.Models;
+using LiteratureAPI.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 /*
@@ -6,6 +9,11 @@ https://stackoverflow.com/questions/75641248/what-exactly-does-builder-services-
 https://learn.microsoft.com/en-us/aspnet/core/fundamentals/routing?view=aspnetcore-9.0
  */
 builder.Services.AddControllers();
+
+// bring our dependencies to our app, so automatic dependency injection works.
+// controller should be added automatically (from above...?)
+builder.Services.AddScoped<AuthorsService>();
+builder.Services.AddScoped<AuthorsModel>();
 
 var app = builder.Build();
 
