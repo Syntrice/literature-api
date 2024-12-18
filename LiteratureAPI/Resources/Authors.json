@@ -1,0 +1,52 @@
+[
+  {
+    "Id": 1,
+    "Name": "George Orwell",
+    "Nationality": "British"
+  },
+  {
+    "Id": 2,
+    "Name": "Confucius",
+    "Nationality": "Chinese"
+  },
+  {
+    "Id": 3,
+    "Name": "Evie Pom",
+    "Nationality": "German"
+  },
+  {
+    "Id": 4,
+    "Name": "Leo Tolstoy",
+    "Nationality": "Russian"
+  },
+  {
+    "Id": 5,
+    "Name": "Jane Austen",
+    "Nationality": "British"
+  },
+  {
+    "Id": 6,
+    "Name": "Gabriel Garcia Marquez",
+    "Nationality": "Colombian"
+  },
+  {
+    "Id": 7,
+    "Name": "Homer",
+    "Nationality": "Ancient Greek"
+  },
+  {
+    "Id": 8,
+    "Name": "Mark Twain",
+    "Nationality": "American"
+  },
+  {
+    "Id": 9,
+    "Name": "Virginia Woolf",
+    "Nationality": "British"
+  },
+  {
+    "Id": 10,
+    "Name": "Haruki Murakami",
+    "Nationality": "Japanese"
+  }
+]

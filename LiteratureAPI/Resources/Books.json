@@ -1,0 +1,62 @@
+[
+  {
+    "Id": 0,
+    "Title": "1984",
+    "Author": "George Orwell",
+    "Year": 1949
+  },
+  {
+    "Id": 1,
+    "Title": "The Analects",
+    "Author": "Confucius",
+    "Year": -475
+  },
+  {
+    "Id": 2,
+    "Title": "Evie’s Adventure",
+    "Author": "Evie Pom",
+    "Year": 2024
+  },
+  {
+    "Id": 3,
+    "Title": "War and Peace",
+    "Author": "Leo Tolstoy",
+    "Year": 1869
+  },
+  {
+    "Id": 4,
+    "Title": "Pride and Prejudice",
+    "Author": "Jane Austen",
+    "Year": 1813
+  },
+  {
+    "Id": 5,
+    "Title": "One Hundred Years of Solitude",
+    "Author": "Gabriel Garcia Marquez",
+    "Year": 1967
+  },
+  {
+    "Id": 6,
+    "Title": "The Odyssey",
+    "Author": "Homer",
+    "Year": -800
+  },
+  {
+    "Id": 7,
+    "Title": "The Adventures of Tom Sawyer",
+    "Author": "Mark Twain",
+    "Year": 1876
+  },
+  {
+    "Id": 8,
+    "Title": "Mrs Dalloway",
+    "Author": "Virginia Woolf",
+    "Year": 1925
+  },
+  {
+    "Id": 9,
+    "Title": "Norwegian Wood",
+    "Author": "Haruki Murakami",
+    "Year": 1987
+  }
+]
